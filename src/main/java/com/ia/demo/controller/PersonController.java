@@ -5,11 +5,10 @@ import com.ia.demo.dto.DiagnosticDTO;
 import com.ia.demo.dto.PersonDTO;
 import com.ia.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/person/")
@@ -19,12 +18,13 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping(value="{dni}")
-    public PersonDTO getPersonByDni(@RequestParam  String dni){
-        return personService.findByDni(dni);
+    public ResponseEntity<?> getPersonByDni(@PathVariable String dni){
+        return new ResponseEntity<>(personService.findByDni(dni),HttpStatus.OK);
     }
 
     @PostMapping(value="")
-    public void savePerson(@RequestParam PersonDTO person){
+    public ResponseEntity<?> savePerson(@RequestBody PersonDTO person){
         personService.save(person);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

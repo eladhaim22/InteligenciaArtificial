@@ -10,7 +10,7 @@ public class ClipsConfiguration {
     @Bean
     public Environment clipsEnviorment(){
         Environment clipsEnvironment = new Environment();
-        //clipsEnvironment.loadFromResource("/clips/CLIPS.clp");
+        clipsEnvironment.loadFromResource("/lib/p.clp");
         clipsEnvironment.reset();
         return clipsEnvironment;
     }

@@ -69,12 +69,13 @@ public class DiagnosticService {
                         "(superficie {2})\n" +
                         "(diametro {3})\n" +
                         "(elevada {4})\n" +
-                        "(borde {5)\n" +
+                        "(borde {5})\n" +
                         ")\n" +
                         ")",diagnostic.getPersonId(),diagnostic.getForm().getAsimetria(),diagnostic.getForm().getSuperficie(),
                             diagnostic.getForm().getDiametro(),diagnostic.getForm().getElevada(),diagnostic.getForm().getBorde());
 
         clipsEnvironment.assertString(a);
+        clipsEnvironment.run();
         return diagnostic;
     }
 
