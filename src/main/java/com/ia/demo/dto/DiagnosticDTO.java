@@ -1,14 +1,11 @@
-package com.ia.demo.domain;
+package com.ia.demo.dto;
 
-import org.springframework.stereotype.Component;
+import com.ia.demo.domain.Form;
+import com.ia.demo.domain.Stain;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-public class Diagnostic {
-    @Id
-    @GeneratedValue
+public class DiagnosticDTO {
     private Long id;
     private Date date;
     private String nombre;
@@ -18,54 +15,32 @@ public class Diagnostic {
     private String accion;
     private String antecedentes;
 
-    @ManyToOne
-    @JoinColumn(name="personId")
-    private Person person;
-
-    @Embedded
-    private Stain stain;
-
-    @Embedded
-    private Form form;
+    private Long personId;
+    private Stain stain = new Stain();
+    private Form form = new Form();
 
     public Long getId() {
         return id;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public Stain getStain() {
-        return stain;
-    }
-
-    public Form getForm() {
-        return form;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setStain(Stain stain) {
-        this.stain = stain;
-    }
-
-    public void setForm(Form form) {
-        this.form = form;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCuidados() {
@@ -82,14 +57,6 @@ public class Diagnostic {
 
     public void setMotivoConsulta(String motivoConsulta) {
         this.motivoConsulta = motivoConsulta;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getResultado() {
@@ -114,5 +81,29 @@ public class Diagnostic {
 
     public void setAntecedentes(String antecedentes) {
         this.antecedentes = antecedentes;
+    }
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
+    }
+
+    public Stain getStain() {
+        return stain;
+    }
+
+    public void setStain(Stain stain) {
+        this.stain = stain;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 }

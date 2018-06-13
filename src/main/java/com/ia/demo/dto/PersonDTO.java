@@ -1,22 +1,18 @@
-package com.ia.demo.domain;
+package com.ia.demo.dto;
+
+import com.ia.demo.domain.Diagnostic;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name="persons")
-public class Person {
-    @Id
-    @GeneratedValue
+public class PersonDTO {
     private Long id;
     private String dni;
     private String firstName;
     private String lastName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="personId")
-    private List<Diagnostic> diagnosticList = new ArrayList<>();
+    private List<DiagnosticDTO> diagnosticList = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -28,6 +24,10 @@ public class Person {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public void setId(Long id) {
@@ -46,15 +46,12 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public void setDiagnosticList(List<Diagnostic> diagnosticList) {
-        this.diagnosticList = diagnosticList;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public List<Diagnostic> getDiagnosticList() {
+    public List<DiagnosticDTO> getDiagnosticList() {
         return diagnosticList;
     }
+
+    public void setDiagnosticList(List<DiagnosticDTO> diagnosticList) {
+        this.diagnosticList = diagnosticList;
+    }
 }
+
