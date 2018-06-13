@@ -16,7 +16,7 @@ public class DiagnositcController {
     @Autowired
     private DiagnosticService diagnosticService;
 
-    @PostMapping(value="")
+    @PostMapping(value="diagnostic")
     public ResponseEntity<?> getDiagnostic(@RequestBody DiagnosticDTO diagnosticDTO){
         return new ResponseEntity<>(diagnosticService.calculateDiagnostic(diagnosticDTO),HttpStatus.OK);
     }

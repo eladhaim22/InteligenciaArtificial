@@ -36,4 +36,8 @@ public class PersonService {
     public void save(PersonDTO person) {
         personRepository.saveAndFlush(personMapper.toModel(person));
     }
+
+    public List<PersonDTO> getAll(){
+        return personRepository.findAll().stream().map(p -> personMapper.toDTO(p)).collect(Collectors.toList());
+    }
 }

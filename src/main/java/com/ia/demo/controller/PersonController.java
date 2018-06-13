@@ -22,6 +22,11 @@ public class PersonController {
         return new ResponseEntity<>(personService.findByDni(dni),HttpStatus.OK);
     }
 
+    @GetMapping(value="")
+    public ResponseEntity<?> listPersons(){
+        return new ResponseEntity<>(personService.getAll(),HttpStatus.OK);
+    }
+
     @PostMapping(value="")
     public ResponseEntity<?> savePerson(@RequestBody PersonDTO person){
         personService.save(person);
