@@ -23,7 +23,14 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-
+	<repositories>
+		<!--other repositories if any-->
+		<repository>
+			<id>net.sf.clipsrules.jni</id>
+			<name>net.sf.clipsrules.jni</name>
+			<url>file:${project.basedir}/repo</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,9 +44,7 @@
 		<dependency>
 			<groupId>net.sf.clipsrules.jni</groupId>
 			<artifactId>net.sf.clipsrules.jni</artifactId>
-			<scope>system</scope>
 			<version>0.5</version>
-			<systemPath>${basedir}/src/main/resources/lib/CLIPSJNI.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
