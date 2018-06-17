@@ -1,8 +1,6 @@
 package com.ia.demo.mapper;
 
 import com.ia.demo.domain.Diagnostic;
-import com.ia.demo.domain.Form;
-import com.ia.demo.domain.Stain;
 import com.ia.demo.dto.DiagnosticDTO;
 import com.ia.demo.repository.DiagnosticRepository;
 import com.ia.demo.repository.PersonRepository;

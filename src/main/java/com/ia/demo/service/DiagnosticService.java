@@ -5,6 +5,9 @@ import com.ia.demo.dto.DiagnosticDTO;
 import com.ia.demo.mapper.DiagnosticMapper;
 import com.ia.demo.repository.DiagnosticRepository;
 import net.sf.clipsrules.jni.Environment;
+import net.sf.clipsrules.jni.FactAddressValue;
+import net.sf.clipsrules.jni.MultifieldValue;
+import net.sf.clipsrules.jni.SymbolValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,11 +79,25 @@ public class DiagnosticService {
 
         clipsEnvironment.assertString(a);
         clipsEnvironment.run();
+        String evalstr= "(find-all-facts ((?J diagnostico)) TRUE)";
+        SymbolValue pv = (SymbolValue) clipsEnvironment.eval(evalstr);
+        //FactAddressValue factAddressValue = (FactAddressValue) pv.get(0);
+        //FactAddressValue fv = (FactAddressValue) pv.get(0);
+        FactAddressValue fv = null;
+        String s = null;
+        try {
+            diagnostic.setResultado(fv.getFactSlot("resultado").toString());
+            diagnostic.setAccion(fv.getFactSlot("accion").toString());
+            diagnostic.setNombre(fv.getFactSlot("nombre").toString());
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+
         return diagnostic;
     }
 
-    public void save(DiagnosticDTO diagnostic){
-        diagnosticRepository.saveAndFlush(diagnosticMapper.toModel(diagnostic));
+    public DiagnosticDTO save(DiagnosticDTO diagnostic){
+        return diagnosticMapper.toDTO(diagnosticRepository.saveAndFlush(diagnosticMapper.toModel(diagnostic)));
     }
 
     public List<DiagnosticDTO> getAllDiagnosticByPersonId(Long id){

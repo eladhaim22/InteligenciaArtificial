@@ -1,7 +1,5 @@
 package com.ia.demo.domain;
 
-import java.util.Date;
-
 public class DateId {
     private Long DiagnosticId;
     private String date;

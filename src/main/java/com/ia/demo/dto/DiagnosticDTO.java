@@ -19,6 +19,23 @@ public class DiagnosticDTO {
     private Stain stain = new Stain();
     private Form form = new Form();
 
+    public DiagnosticDTO() {
+    }
+
+    public DiagnosticDTO(Long id, Date date, String nombre, String cuidados, String motivoConsulta, String resultado, String accion, String antecedentes, Long personId, Stain stain, Form form) {
+        this.id = id;
+        this.date = date;
+        this.nombre = nombre;
+        this.cuidados = cuidados;
+        this.motivoConsulta = motivoConsulta;
+        this.resultado = resultado;
+        this.accion = accion;
+        this.antecedentes = antecedentes;
+        this.personId = personId;
+        this.stain = stain;
+        this.form = form;
+    }
+
     public Long getId() {
         return id;
     }

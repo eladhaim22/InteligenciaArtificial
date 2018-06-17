@@ -1,7 +1,6 @@
 package com.ia.demo.domain;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
 
 @Embeddable
 public class Form {

@@ -1,7 +1,5 @@
 package com.ia.demo.domain;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.util.Date;
 

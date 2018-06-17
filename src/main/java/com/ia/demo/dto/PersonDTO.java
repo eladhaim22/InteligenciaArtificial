@@ -1,8 +1,5 @@
 package com.ia.demo.dto;
 
-import com.ia.demo.domain.Diagnostic;
-
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

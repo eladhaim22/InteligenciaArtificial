@@ -1,8 +1,8 @@
 package com.ia.demo.configuration;
 
+import net.sf.clipsrules.jni.Environment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import net.sf.clipsrules.jni.Environment;
 
 @Configuration
 public class ClipsConfiguration {
